@@ -382,6 +382,116 @@
     font-size:0.78rem; color:var(--ink-soft);
   }
 
+
+  /* ===================== WAITLIST SECTION ===================== */
+  .waitlist-section{
+    background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
+    padding: 80px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .waitlist-section::before{
+    content:"";
+    position:absolute;
+    width:500px; height:500px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.05);
+    top:-200px; left:-100px;
+    pointer-events:none;
+  }
+  .waitlist-section::after{
+    content:"";
+    position:absolute;
+    width:300px; height:300px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.04);
+    bottom:-120px; right:-60px;
+    pointer-events:none;
+  }
+  .waitlist-inner{
+    max-width:640px;
+    margin:0 auto;
+    text-align:center;
+    position:relative;
+    z-index:1;
+  }
+  .waitlist-badge{
+    display:inline-flex; align-items:center; gap:7px;
+    background:rgba(255,255,255,0.15);
+    color:#fff; font-size:0.75rem; font-weight:700;
+    padding:6px 16px; border-radius:20px; margin-bottom:22px;
+  }
+  .waitlist-badge .pulse{
+    width:7px; height:7px; border-radius:50%;
+    background:#fff;
+    animation: pulse-dot 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse-dot{
+    0%,100%{ opacity:1; transform:scale(1); }
+    50%{ opacity:0.5; transform:scale(0.7); }
+  }
+  .waitlist-inner h2{
+    font-size:clamp(1.6rem, 3vw, 2.1rem);
+    font-weight:900; color:#fff;
+    margin:0 0 14px; line-height:1.3;
+  }
+  .waitlist-inner p{
+    font-size:0.97rem; color:rgba(255,255,255,0.82);
+    line-height:1.75; margin:0 0 36px;
+  }
+  .waitlist-form-row{
+    display:flex; gap:0;
+    background:#fff; border-radius:var(--radius-sm);
+    padding:6px 6px 6px 18px;
+    box-shadow:0 16px 40px rgba(0,0,0,0.18);
+    max-width:480px; margin:0 auto 16px;
+  }
+  .waitlist-form-row input{
+    flex:1; border:none; outline:none;
+    font-family:Tajawal,sans-serif;
+    font-size:0.95rem; color:var(--ink);
+    background:transparent; min-width:0;
+    direction:rtl;
+  }
+  .waitlist-form-row input::placeholder{ color:#A7AFBC; }
+  .waitlist-submit{
+    background:var(--sage); color:#fff;
+    border:none; border-radius:8px;
+    padding:11px 22px; font-family:Tajawal,sans-serif;
+    font-weight:700; font-size:0.88rem; cursor:pointer;
+    white-space:nowrap; flex-shrink:0;
+    transition:background .25s ease, transform .2s ease;
+  }
+  .waitlist-submit:hover{ background:var(--sage-dark); transform:translateY(-1px); }
+  .waitlist-submit:disabled{ opacity:0.7; cursor:default; transform:none; }
+  .waitlist-note{
+    font-size:0.75rem; color:rgba(255,255,255,0.6);
+    display:flex; align-items:center; justify-content:center; gap:6px;
+  }
+  .waitlist-note svg{ width:13px; height:13px; flex-shrink:0; }
+  .waitlist-success{
+    display:none;
+    background:rgba(255,255,255,0.12);
+    border:1.5px solid rgba(255,255,255,0.25);
+    border-radius:var(--radius);
+    padding:28px 24px;
+    color:#fff; max-width:440px; margin:0 auto;
+  }
+  .waitlist-success .check-circle{
+    width:52px; height:52px; border-radius:50%;
+    background:rgba(255,255,255,0.18);
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 16px;
+  }
+  .waitlist-success .check-circle svg{ width:26px; height:26px; }
+  .waitlist-success h4{ font-size:1.1rem; font-weight:700; margin:0 0 8px; }
+  .waitlist-success p{ font-size:0.85rem; color:rgba(255,255,255,0.78); margin:0; }
+  @media(max-width:580px){
+    .waitlist-section{ padding:60px 20px; }
+    .waitlist-form-row{ flex-direction:column; gap:10px; padding:14px; border-radius:var(--radius); }
+    .waitlist-submit{ width:100%; padding:13px; }
+  }
+
   /* ===================== DASHBOARD LAYOUT ===================== */
   .app-bar{
     display:flex;
@@ -865,7 +975,6 @@
         <a class="link-secondary" href="#how">شاهد كيف يعمل</a>
       </div>
       <div class="hero-stats">
-        <div class="stat"><b>+40</b><span>جهة مانحة مدعومة</span></div>
         <div class="stat"><b>ثانيتان</b><span>لمزامنة بريدك</span></div>
         <div class="stat"><b>100%</b><span>خصوصية حسابك</span></div>
       </div>
@@ -900,14 +1009,14 @@
   <section class="how" id="how">
     <div class="how-head">
       <h2>ثلاث خطوات، وتبدأ محفظتك بالعمل</h2>
-      <p>كل يوزر يمتلك صندوقه الخاص المجهّز للعمل فوراً برمجياً</p>
+      <p>كل مستخدم يمتلك صندوقه الخاص </p>
     </div>
     <div class="how-steps">
       <div class="step">
         <div class="step-num">١</div>
         <h3>حوّل بريدك</h3>
         <p>أضف عنوان حفيظ المخصص كوجهة تحويل تلقائي للإيميلات المانحة للشهادات.</p>
-        <span class="step-email">hfeezbox@gmail.com</span>
+        <span class="step-email">hfeez@box.com</span>
       </div>
       <div class="step">
         <div class="step-num">٢</div>
@@ -922,12 +1031,44 @@
     </div>
   </section>
 
+
+  <!-- ===== WAITLIST SECTION ===== -->
+  <section class="waitlist-section" id="waitlist">
+    <div class="waitlist-inner">
+      <span class="waitlist-badge"><span class="pulse"></span> قريباً — الإطلاق الرسمي</span>
+      <h2>سجّل اهتمامك وكن أول من يعرف</h2>
+      <p>حفيظ في مرحلة التطوير النهائية. أدخل بريدك الإلكتروني وسنبلغك فور الإطلاق الرسمي .</p>
+
+      <form id="waitlistForm" action="https://formspree.io/f/mwvdabwp" method="POST">
+        <div class="waitlist-form-row">
+          <input type="email" name="email" placeholder="أدخل بريدك الإلكتروني هنا..." required autocomplete="email">
+          <button type="submit" class="waitlist-submit" id="waitlistSubmitBtn">أبلغني عند الإطلاق</button>
+        </div>
+        <input type="hidden" name="_subject" value="اشتراك جديد في قائمة انتظار حفيظ">
+        <input type="hidden" name="_language" value="ar">
+      </form>
+
+      <div class="waitlist-success" id="waitlistSuccess">
+        <div class="check-circle">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>تم تسجيلك بنجاح!</h4>
+        <p>سنرسل لك إشعاراً فور إطلاق حفيظ رسمياً. شكراً لاهتمامك.</p>
+      </div>
+
+      <p class="waitlist-note">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 3L4 6V11C4 16 7.5 19.5 12 21C16.5 19.5 20 16 20 11V6L12 3Z" stroke="currentColor" stroke-width="1.6"/></svg>
+        لن نشارك بريدك مع أي طرف ثالث
+      </p>
+    </div>
+  </section>
+
   <!-- Login Section -->
   <section class="login-section" id="login">
     <div class="login-section-inner">
       <div class="login-side">
         <h2>سجل دخولك الآن</h2>
-        <p>أدخل أي بريد إلكتروني حقيقي خاص بك للتجربة، وسيقوم النظام بإنشاء مساحة تخزينية مستقلة وفارغة تماماً لك.</p>
+        <p>أدخل  بريد إلكتروني حقيقي خاص بك للتجربة، وسيقوم النظام بإنشاء مساحة تخزينية مستقلة وفارغة تماماً لك.</p>
         <div class="trust-row">
           <div class="trust-item">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L4 6V11C4 16 7.5 19.5 12 21C16.5 19.5 20 16 20 11V6L12 3Z" stroke="currentColor" stroke-width="1.6"/></svg>
@@ -941,7 +1082,7 @@
       </div>
 
       <div class="login-card">
-        <h3>تسجيل الدخول / حفيظ</h3>
+        <h3>تسجيل الدخول</h3>
         <p class="sub">أدخل بريدك الخاص لفتح صندوقك الشخصي</p>
 
         <form id="loginForm">
@@ -1000,10 +1141,10 @@
         </svg>
       </div>
       <div class="banner-text">
-        <h3>أهلاً بك في مساحتك الخاصة المفرزة 📦</h3>
+        <h3>أهلاً بك في محفظتك الذكية 👋</h3>
         <p>قم بتحويل ملفاتك المانحة لـ <span class="email-pill">hfeezbox@gmail.com</span> أو استخدم الرفع اليدوي لبدء ملء محفظتك الفارغة.</p>
       </div>
-      <button class="banner-copy-btn" id="copyEmailBtn">نسخ بريد المزامنة</button>
+      <button class="banner-copy-btn" id="copyEmailBtn">نسخ العنوان</button>
     </div>
 
     <!-- Control Bar -->
@@ -1050,7 +1191,7 @@
         <rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.6" stroke-dasharray="4 4"/>
       </svg>
       <p id="emptyStateMainText">المحفظة فارغة تماماً</p>
-      <span id="emptyStateSubText">لم تقم برفع أو ربط أي شهادة لهذا الحساب حتى الآن.</span>
+      <span id="emptyStateSubText">لم ترفع أو تربط أي شهادة لهذا الحساب حتى الآن.</span>
     </div>
   </div>
 </div>
@@ -1060,7 +1201,7 @@
 <div class="custom-modal-backdrop" id="uploadModal">
   <div class="custom-modal">
     <h4>أرشفة شهادة جديدة</h4>
-    <p>أدخل البيانات الرسمية للوثيقة ليتم عزلها وحفظها بملف اليوزر الخاص بك.</p>
+    <p>أدخل البيانات الرسمية للوثيقة ليتم عزلها وحفظها بملفك.</p>
     
     <form id="modalForm">
       <label class="field-label" for="modalCertTitle">عنوان الشهادة / البرنامج التخصصي</label>
@@ -1272,7 +1413,7 @@
         const cert = userCertificates.find(c => c.id === certId);
         
         if (cert && cert.fileData) {
-          showToast('جاري تحضير نافذة المعاينة الأمنية...');
+          showToast('جاري تحضير نافذة المعاينة ...');
           // Construct explicit viewport wrapper
           const viewWindow = window.open();
           if (viewWindow) {
@@ -1298,7 +1439,7 @@
         const cert = userCertificates.find(c => c.id === certId);
         
         if (cert && cert.fileData) {
-          showToast('جاري بدء تنزيل الملف المأمن...');
+          showToast('جارٍ بدء تنزيل الملف ...');
           
           // Generate isolated structural anchor element context
           const dlAnchor = document.createElement('a');
@@ -1333,13 +1474,13 @@
 
     setTimeout(function(){
       loadUserSession(enteredEmail);
-      loginBtnText.textContent = 'تم التوثيق الحقيقي! جارٍ الدخول...';
+      loginBtnText.textContent = ' جارٍ تسجيل الدخول...';
       
       setTimeout(function(){
         landingView.style.display = 'none';
         dashboardView.style.display = 'block';
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        showToast('تمت الدخول بنجاح لحسابك المنعزل آمنياً 🔐');
+        showToast('تم تسجيل الدخول بنجاح 🔐');
       }, 600);
     }, 1200);
   });
@@ -1360,7 +1501,7 @@
     loginForm.reset();
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    showToast('تم تسجيل الخروج وتأمين الجلسة الحالية');
+    showToast('تم تسجيل الخروج ');
   });
 
   // ===== Native File Picker Trigger Pipeline =====
@@ -1420,7 +1561,7 @@
     modalForm.reset();
     hiddenFileInput.value = '';
     tempFileData = ''; tempFileName = ''; tempFileType = '';
-    showToast('تم الحفظ والأرشفة الفورية بالحساب الحقيقي ✨');
+    showToast('تم الحفظ والأرشفة  ✨');
   });
 
   // ===== Control Bar: Mailbox Sync Engine Simulation =====
@@ -1437,7 +1578,7 @@
       syncBtn.classList.remove('is-syncing');
       syncBtn.disabled = false;
       syncBtnText.textContent = 'مزامنة البريد';
-      showToast('لم يتم العثور على رسائل شهادات غير مفروزة ببريدك المربوط حالياً');
+      showToast('لم يتم العثور على رسائل شهادات في بريدك المربوط حالياً');
     }, 2000);
   });
 
@@ -1457,6 +1598,45 @@
   searchInput.addEventListener('input', function(){
     renderCertificates(searchInput.value);
   });
+
+  // ===== Waitlist Form via Formspree =====
+  const waitlistForm = document.getElementById('waitlistForm');
+  const waitlistSuccess = document.getElementById('waitlistSuccess');
+  const waitlistSubmitBtn = document.getElementById('waitlistSubmitBtn');
+
+  if (waitlistForm) {
+    waitlistForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      if (waitlistSubmitBtn.disabled) return;
+
+      waitlistSubmitBtn.disabled = true;
+      waitlistSubmitBtn.textContent = 'جارٍ التسجيل...';
+
+      try {
+        const formData = new FormData(waitlistForm);
+        const response = await fetch(waitlistForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          waitlistForm.style.display = 'none';
+          waitlistSuccess.style.display = 'block';
+          document.querySelector('.waitlist-note').style.display = 'none';
+        } else {
+          waitlistSubmitBtn.disabled = false;
+          waitlistSubmitBtn.textContent = 'أبلغني عند الإطلاق';
+          alert('حدث خطأ، يرجى المحاولة مرة أخرى.');
+        }
+      } catch (err) {
+        waitlistSubmitBtn.disabled = false;
+        waitlistSubmitBtn.textContent = 'أبلغني عند الإطلاق';
+        alert('تأكد من اتصالك بالإنترنت وحاول مجدداً.');
+      }
+    });
+  }
+
 </script>
 
 </body>
