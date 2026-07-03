@@ -1142,8 +1142,7 @@
       </div>
       <div class="banner-text">
         <h3>أهلاً بك في محفظتك الذكية 👋</h3>
-        <p>قم بتحويل ملفاتك المانحة لـ <span class="email-pill">hfeezbox@gmail.com</span> أو استخدم الرفع اليدوي لبدء ملء محفظتك الفارغة.</p>
-      </div>
+        <p>قم بتحويل ملفاتك المانحة لـ <span class="email-pill">hfeez@box.com</span> أو استخدم الرفع اليدوي لبدء ملء محفظتك الفارغة.</p>      </div>
       <button class="banner-copy-btn" id="copyEmailBtn">نسخ العنوان</button>
     </div>
 
@@ -1572,7 +1571,7 @@
     if(syncBtn.classList.contains('is-syncing')) return;
     syncBtn.classList.add('is-syncing');
     syncBtn.disabled = true;
-    syncBtnText.textContent = 'فحص hfeezbox@gmail.com...';
+    syncBtnText.textContent = 'فحص hfeez@box.com...';
 
     setTimeout(function(){
       syncBtn.classList.remove('is-syncing');
@@ -1585,7 +1584,7 @@
   // ===== Clipboard Copy Manager =====
   const copyBtn = document.getElementById('copyEmailBtn');
   copyBtn.addEventListener('click', function(){
-    const targetEmail = 'hfeezbox@gmail.com';
+    const targetEmail = 'hfeez@box.com';
     if(navigator.clipboard){
       navigator.clipboard.writeText(targetEmail).then(()=>{}, ()=>{});
     }
